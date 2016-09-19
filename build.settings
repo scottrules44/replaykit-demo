@@ -13,6 +13,7 @@ settings =
 	{
 		plist =
 		{
+			NSMicrophoneUsageDescription = "Testing",
 			-- UIApplicationExitsOnSuspend = true, -- default is false
 			CFBundleIconFile = "Icon.png",
 			CFBundleIdentifier="com.scotthinc.com",
