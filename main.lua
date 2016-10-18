@@ -16,12 +16,6 @@ local function handleTap( event )
 		print(replayKit.recordingScreen())
 		print("Is using mic?")
 		print(replayKit.usingMicrophoneForRecoding())
-		print("-----------------------")
-		print("Are we broadcasting?")
-		print(replayKit.broadcasting())
-		print("Broadcast is paused?")
-		print(replayKit.broadcastIsPaused())
-		print("what is my url for my broadcast?")
 		print(replayKit.getBroadcastingUrl())
 		if (toggle == 0) then--for broadcasting
 			replayKit.startBroadcasting(listener)
@@ -47,10 +41,35 @@ local function handleTap( event )
 		return true
 	end
 end
+local function handleTap2( event )
+	if (event.phase == "began") then
+		print("Are we broadcasting?")
+		print(replayKit.broadcasting())
+		print("Broadcast is paused?")
+		print(replayKit.broadcastIsPaused())
+		print("what is my url for my broadcast?")
+		print(replayKit.getBroadcastingUrl())
+		if (toggle == 0) then--for broadcasting
+			replayKit.record(listener, true) -- lis and mic
+			event.target.text = "Stop Recording"
+			toggle = 1
+		else
+			replayKit.stopRecording(listener)
+			event.target.text = "Record"
+			toggle = 0
+		end
+		--[[
+		-- this enables recording
+		
+		]]--
+		return true
+	end
+end
 myText = display.newText("Record", display.contentCenterX, display.contentCenterY, native.systemFont, 20)
-myText:addEventListener( "touch", handleTap )
+myText:addEventListener( "touch", handleTap2 )
 
-
+myText2 = display.newText("Broadcast", display.contentCenterX, display.contentCenterY+ 30, native.systemFont, 20)
+myText2:addEventListener( "touch", handleTap )
 -- this is the sample code from corona sdk DragMe 
 
 --this is sample I got from corona sample code
