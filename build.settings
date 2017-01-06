@@ -43,7 +43,7 @@ settings =
 		["plugin.replayKit"] =
         {
             -- required
-            publisherId = "com.scottrules44",
+            publisherId = "tech.scotth",
         },
     }
 }
