@@ -11,7 +11,7 @@ end
 local function handleTap( event )
 	if (event.phase == "began") then
 		print("Can record?")
-		print(replayKit.availbleToRecord())
+		print(replayKit.availableToRecord())
 		print("Is recording?")
 		print(replayKit.recordingScreen())
 		print("Is using mic?")
